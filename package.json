@@ -1,0 +1,11 @@
+{
+  "name": "teamleadto",
+  "scripts": {
+    "dev": "zero app",
+    "build": "zero build",
+    "start": "NODE_ENV=production zero app"
+  },
+  "dependencies": {
+    "zero": "*"
+  }
+}
