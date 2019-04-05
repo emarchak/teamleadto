@@ -4,6 +4,7 @@ const config = {
 };
 
 const messages = {
+  'invalid_auth': "Failed to connect to Slack. Please email admin@teamlead.to",
   'not_authed': "Failed to connect to Slack. Please email admin@teamlead.to",
   'already_in_team': "You're already in our slack channel. Please check your email.",
   'ok': "Thanks for joining! Please check your email for an invite."
