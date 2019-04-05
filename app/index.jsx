@@ -2,11 +2,10 @@ import './style.scss';
 
 import { Helmet } from 'react-helmet';
 import { Component } from 'react';
+import SlackForm from './_SlackForm';
+
 const text = {
-  title: 'TeamLeadTO',
-  emailLabel: 'Email',
-  emailPlaceholder: 'leaders@teamlead.to',
-  submitLabel: 'Join our slack community',
+  title: 'TeamLeadTO'
 };
 
 const Metadata = () => {
@@ -18,49 +17,12 @@ const Metadata = () => {
   )
 };
 
-class SlackForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {email: ''};
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(evt) {
-    this.setState({[evt.target.name]: evt.target.value});
-  }
-
-  handleSubmit(evt) {
-    console.log(this.state);
-    evt.preventDefault();
-  }
-
-  render() {
-    return (
-      <form className={'slackform'} onSubmit={this.handleSubmit}>
-        <label>
-          {text.emailLabel}
-          <input type={'email'}
-                 className={'slackform--email'}
-                 name={'email'}
-                 placeholder={text.emailPlaceholder}
-                 value={this.state.email}
-                 autoFocus={true}
-                 onChange={this.handleChange}
-          />
-        </label>
-        <input type={'submit'} value={text.submitLabel} className={'slackform--submit'}/>
-      </form>
-    )
-  };
-}
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: null
+      email: 'erin@emarchak.com'
     }
   }
 
