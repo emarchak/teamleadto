@@ -1,7 +1,6 @@
-
 const config = {
   slack_url: 'https://slack.com/api/users.admin.invite',
-  slack_token: '',
+  slack_token: process.env.SLACK_TOKEN,
 };
 
 const messages = {
