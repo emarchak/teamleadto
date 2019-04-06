@@ -12,7 +12,6 @@ const messages = {
   'ok': "Thanks for joining! Please check your inbox for an invite."
 };
 
-
 module.exports = async (req, res) => {
   const { email } = req.body;
   try {

@@ -9,7 +9,7 @@ const text = {
 const FormMessage = (props) => {
   if (props.message) {
     return (
-      <p className={'slackform--message'}>
+      <p className={'slackform--message slackform--element' + (props.error ? ' slackform--message__error' : '')}>
         {props.message}
       </p>
     )
@@ -61,11 +61,11 @@ class SlackForm extends Component {
   render() {
     return (
       <form className={'slackform' + (this.state.error ? ' slackform__error' : '')} onSubmit={this.handleSubmit}>
-        <FormMessage message={this.state.message} />
+        <FormMessage message={this.state.message} error={this.state.error}/>
         <label className={'slackform--label'}>
           {text.emailLabel}
           <input type={'email'}
-                 className={'slackform--email'}
+                 className={'slackform--email slackform--element'}
                  name={'email'}
                  placeholder={text.emailPlaceholder}
                  value={this.state.email}
@@ -73,7 +73,7 @@ class SlackForm extends Component {
                  onChange={this.handleChange}
           />
         </label>
-        <input type={'submit'} value={text.submitLabel} className={'slackform--submit'}/>
+        <input type={'submit'} value={text.submitLabel} className={'slackform--submit slackform--element'}/>
       </form>
     )
   };

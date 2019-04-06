@@ -50,6 +50,7 @@ class App extends Component {
         <Metadata/>
         <div className={'container'}>
           <img src={'img/logo--dark.svg'} alt={text.title} className={'logo'} width={480}/>
+          <p>{text.description}</p>
           <SlackForm email={this.state.email}/>
         </div>
       </div>

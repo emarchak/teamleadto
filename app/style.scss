@@ -5,11 +5,16 @@ html {
     -o-background-size: cover;
   background-size: cover;
   font-size: 10px;
+  line-height: 1.4;
 }
 
-$spacing: 1.5rem;
+$spacing: 1.8rem;
+
 $color-bg: #fff;
 $color-text: #333;
+$color-success: #a9dd9c;
+$color-error: #dd9d9d;
+
 $border-radius: .3rem;
 
 $font-size: 1.6rem;
@@ -20,7 +25,7 @@ $input-size: $font-size * 2;
 .container {
   background-color: $color-bg;
   border-radius: $border-radius;
-  padding: $spacing;
+  padding: $spacing ($spacing * 2);
   margin: $spacing auto;
   max-width: 42rem;
 
@@ -28,6 +33,7 @@ $input-size: $font-size * 2;
   font-family: sans-serif;
   color: $color-text;
   text-align: center;
+  box-shadow: 0 1.2rem 2.4rem 0 rgba(0,0,0,0.09);
 }
 
 .logo {
@@ -35,24 +41,47 @@ $input-size: $font-size * 2;
 }
 
 .slackform {
+  max-width: 66%;
+  margin: $spacing auto 0;
 
   &--label {
     font-size: $font-size--small;
   }
 
-  &--submit,
-  &--email {
+  &--element {
+    box-sizing: border-box;
     font-size: $font-size;
     border-radius: $border-radius;
+    display: block;
+    width: 100%;
+  }
+
+  &--submit,
+  &--email {
     border: .1rem solid $color-text;
     line-height: $input-size;
     padding: 0 (.5 * $font-size);
-    margin-top: $spacing;
-    display: block;
   }
 
   &--submit {
+    margin-top: $spacing;
     background: $color-text;
     color: $color-bg;
+    &:hover,
+    &:focus {
+      box-shadow: 0 1.2rem 2.4rem 0 rgba(0,0,0,0.09);
+      color: lighten($color-bg, 50%);
+      cursor: pointer;
+    }
   }
+
+  &--message {
+    padding: (.5 * $font-size);
+    background: $color-success;
+    font-size: $font-size--small;
+    &__error {
+      background: $color-error;
+    }
+  }
+
 }
