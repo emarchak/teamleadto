@@ -1,4 +1,3 @@
-import slackInvite from "./_slackInvite";
 import { Component } from 'react';
 
 const text = {
@@ -41,23 +40,21 @@ class SlackForm extends Component {
   async handleSubmit(evt) {
     evt.preventDefault();
     try {
-
-      // let response = await slackInvite(this.props.config, this.state);
-      let response = await fetch('/invite', {
+      let response = await fetch( `/invite`, {
         method: 'POST',
-        body: JSON.stringify({
-          email: this.state.email
-        })
+        body: `email=${this.state.email}`,
+        headers: new Headers({
+          'Content-Type' : 'application/x-www-form-urlencoded',
+          'Accept' : 'application/json'
+        }),
       });
 
       let body = await response.json();
       console.log(body);
-      throw new Error(body.error);
-
-      this.setState({submitted: true, message: response.message, error: response.error});
+      this.setState({submitted: true, message: body.message, error: body.error});
     }
     catch (err) {
-      console.log(err);
+      this.setState({submitted: true, error: true});
     }
   }
 
