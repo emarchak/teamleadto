@@ -57,7 +57,7 @@ class App extends Component {
         <Metadata/>
         <div className={'container'}>
           <img src={'img/logo--dark.svg'} alt={text.title} className={'logo'} width={480}/>
-          <SlackForm config={this.props} email={this.state.email}/>
+          <SlackForm config={this.props} token={process.env.SLACK_TOKEN} email={this.state.email}/>
         </div>
       </div>
     )

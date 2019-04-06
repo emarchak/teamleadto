@@ -48,7 +48,7 @@ class SlackForm extends Component {
     return (
       <form className={'slackform' + (this.state.error ? ' slackform__error' : '')} onSubmit={this.handleSubmit}>
         <FormMessage message={this.state.message} />
-        <label>
+        <label className={'slackform--label'}>
           {text.emailLabel}
           <input type={'email'}
                  className={'slackform--email'}
