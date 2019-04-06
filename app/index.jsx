@@ -10,11 +10,6 @@ const text = {
   url: 'http://teamlead.to'
 };
 
-const slackConfig = {
-  slack_url: 'https://slack.com/api/users.admin.invite',
-  slack_token: process.env.SLACK_TOKEN,
-};
-
 const Metadata = () => {
   return (
     <Helmet>
@@ -49,13 +44,20 @@ class App extends Component {
     }
   }
 
+  static async getInitialProps() {
+    return {
+      slack_url: 'https://slack.com/api/users.admin.invite',
+      slack_token: process.env.SLACK_TOKEN,
+    };
+  }
+
   render () {
     return (
       <div>
         <Metadata/>
         <div className={'container'}>
           <img src={'img/logo--dark.svg'} alt={text.title} className={'logo'} width={480}/>
-          <SlackForm config={slackConfig} email={this.state.email}/>
+          <SlackForm config={this.props} email={this.state.email}/>
         </div>
       </div>
     )
