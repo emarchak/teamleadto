@@ -40,8 +40,25 @@ class SlackForm extends Component {
 
   async handleSubmit(evt) {
     evt.preventDefault();
-    let response = await slackInvite(this.props.config, this.state);
-    this.setState({submitted: true, message: response.message, error: response.error});
+    try {
+
+      // let response = await slackInvite(this.props.config, this.state);
+      let response = await fetch('/invite', {
+        method: 'POST',
+        body: JSON.stringify({
+          email: this.state.email
+        })
+      });
+
+      let body = await response.json();
+      console.log(body);
+      throw new Error(body.error);
+
+      this.setState({submitted: true, message: response.message, error: response.error});
+    }
+    catch (err) {
+      console.log(err);
+    }
   }
 
   render() {

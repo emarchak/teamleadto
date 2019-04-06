@@ -1,7 +1,58 @@
 html {
   background: url('https://burst.shopifycdn.com/photos/bright-blue-sky-over-oregon-forest.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
   background-size: cover;
+  font-size: 10px;
+}
+
+$spacing: 1.5rem;
+$color-bg: #fff;
+$color-text: #333;
+$border-radius: .3rem;
+
+$font-size: 1.6rem;
+$font-size--small: 1.2rem;
+
+$input-size: $font-size * 2;
+
+.container {
+  background-color: $color-bg;
+  border-radius: $border-radius;
+  padding: $spacing;
+  margin: $spacing auto;
+  max-width: 42rem;
+
+  font-size: $font-size;
+  font-family: sans-serif;
+  color: $color-text;
+  text-align: center;
+}
+
+.logo {
+  max-width: 66%;
+}
+
+.slackform {
+
+  &--label {
+    font-size: $font-size--small;
+  }
+
+  &--submit,
+  &--email {
+    font-size: $font-size;
+    border-radius: $border-radius;
+    border: .1rem solid $color-text;
+    line-height: $input-size;
+    padding: 0 (.5 * $font-size);
+    margin-top: $spacing;
+    display: block;
+  }
+
+  &--submit {
+    background: $color-text;
+    color: $color-bg;
+  }
 }

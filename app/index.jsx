@@ -44,20 +44,13 @@ class App extends Component {
     }
   }
 
-  static async getInitialProps() {
-    return {
-      slack_url: 'https://slack.com/api/users.admin.invite',
-      slack_token: process.env.SLACK_TOKEN,
-    };
-  }
-
   render () {
     return (
       <div>
         <Metadata/>
         <div className={'container'}>
           <img src={'img/logo--dark.svg'} alt={text.title} className={'logo'} width={480}/>
-          <SlackForm config={this.props} token={process.env.SLACK_TOKEN} email={this.state.email}/>
+          <SlackForm email={this.state.email}/>
         </div>
       </div>
     )
