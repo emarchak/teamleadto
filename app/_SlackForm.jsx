@@ -40,7 +40,7 @@ class SlackForm extends Component {
 
   async handleSubmit(evt) {
     evt.preventDefault();
-    let response = await slackInvite(this.state);
+    let response = await slackInvite(this.props.config, this.state);
     this.setState({submitted: true, message: response.message, error: response.error});
   }
 

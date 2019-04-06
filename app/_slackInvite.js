@@ -1,8 +1,3 @@
-const config = {
-  slack_url: 'https://slack.com/api/users.admin.invite',
-  slack_token: process.env.SLACK_TOKEN,
-};
-
 const messages = {
   'invalid_auth': "Failed to connect to Slack. Please email admin@teamlead.to",
   'not_authed': "Failed to connect to Slack. Please email admin@teamlead.to",
@@ -10,7 +5,7 @@ const messages = {
   'ok': "Thanks for joining! Please check your email for an invite."
 };
 
-async function slackInvite(opts) {
+async function slackInvite(config, opts) {
   try {
     const url = new URL(config.slack_url);
     const params = {
