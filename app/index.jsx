@@ -7,7 +7,9 @@ import SlackForm from './_SlackForm';
 const text = {
   title: 'TeamLeadTO',
   description: 'Leading & managing teams of software engineers can be challenging. This meetup is for leaders of all experience levels to connect, share stories and learn from each other.',
-  url: 'http://teamlead.to'
+  url: 'http://teamlead.to',
+  meetup_url: 'https://www.meetup.com/Toronto-Software-Team-Lead-Meetup/',
+  meetup: 'Join our next meetup in the Toronto area.'
 };
 
 const Metadata = () => {
@@ -35,6 +37,13 @@ const Metadata = () => {
   )
 };
 
+const Container = (props) => {
+  return(
+    <div className={'container'}>
+      {props.children}
+    </div>
+  )
+}
 
 class App extends Component {
   constructor(props) {
@@ -48,11 +57,14 @@ class App extends Component {
     return (
       <div>
         <Metadata/>
-        <div className={'container'}>
+        <Container>
           <img src={'img/logo--dark.svg'} alt={text.title} className={'logo'} width={480}/>
           <p>{text.description}</p>
           <SlackForm email={this.state.email}/>
-        </div>
+        </Container>
+        <Container>
+          <a href={text.meetup_url}>{text.meetup}</a>
+        </Container>
       </div>
     )
   }

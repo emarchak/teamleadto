@@ -50,7 +50,6 @@ class SlackForm extends Component {
       });
 
       let body = await response.json();
-      console.log(body);
       this.setState({submitted: true, message: body.message, error: body.error});
     }
     catch (err) {

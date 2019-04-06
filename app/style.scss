@@ -40,6 +40,17 @@ $input-size: $font-size * 2;
   max-width: 66%;
 }
 
+a {
+  color: $color-text;
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+  &:visited {
+    color: $color-text;
+  }
+}
+
 .slackform {
   max-width: 66%;
   margin: $spacing auto 0;
